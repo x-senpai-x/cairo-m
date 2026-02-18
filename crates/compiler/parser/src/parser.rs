@@ -772,7 +772,7 @@ where
             .map_with(|lit, extra| Spanned::new(lit, extra.span()))
             .validate(|expr, _span, emitter| {
                 // Validate suffix if present
-                if let Expression::Literal(_, Some(ref suffix)) = expr.value() {
+                if let Expression::Literal(_, Some(suffix)) = expr.value() {
                     // For now, only allow known type suffixes
                     if !VALID_SUFFIXES.contains(&suffix.as_str()) {
                         emitter.emit(Rich::custom(
